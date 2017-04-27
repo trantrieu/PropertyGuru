@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/fragment_comment_sv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/fragment_comment_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:visibility="gone"
+            android:orientation="vertical"
+            android:id="@+id/fragment_comment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        </LinearLayout>
+        <trieu.propertyguru.base.view.InfoView
+            android:id="@+id/fragment_comment_info_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </trieu.propertyguru.base.view.InfoView>
+    </FrameLayout>
+</ScrollView>

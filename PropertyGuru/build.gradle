@@ -1,0 +1,65 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.1'
+
+        //Butter Knife
+        classpath 'com.jakewharton:butterknife-gradle-plugin:8.5.1'
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext{
+    // App dependencies
+    okhttp = '3.6.0'
+    retrofit = '2.1.0'
+    cookies_jar = '1.0.1'
+    rxandroid = '1.2.1'//'2.0.1'
+    rxjava = '1.1.6'//'2.0.1'
+    picasso = '2.5.2'
+    google_play_service = '10.0.1'
+    reactive_location = '0.10@aar'
+    butterknife = '8.5.1'
+
+    //testing
+    espresso = '2.2.2'
+    runnerVersion = '0.5'
+    rulesVersion = '0.5'
+
+    easypermissions = '0.3.0'
+    android_support = '25.2.0'
+    android_support_contraint = '1.0.0-beta4'
+    //leak canary
+    leakcanary = '1.5'
+
+    //rxbinding
+    rxbinding = '1.0.0'
+
+    //uiautomator
+    uiautomatorVersion = '2.1.2'
+
+    //org mock
+    orgMock = '1.10.19'
+
+    //robolectric
+    robolectric = '3.3.1'
+
+    //Google Guava
+    guava = '20.0'
+
+    //Parcel
+    parcel = '1.1.6'
+}
