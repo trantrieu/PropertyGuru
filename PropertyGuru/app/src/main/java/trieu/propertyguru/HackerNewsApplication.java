@@ -6,6 +6,8 @@ import android.content.Context;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
+import static trieu.propertyguru.utils.Utils.IS_TESTING;
+
 /**
  * Created by Apple on 4/25/17.
  */
@@ -29,6 +31,12 @@ public class HackerNewsApplication extends Application {
     public void onTerminate() {
         application = null;
         super.onTerminate();
+    }
+
+    static public void setApplication(HackerNewsApplication application){
+        if(BuildConfig.DEBUG && IS_TESTING){
+            HackerNewsApplication.application = application;
+        }
     }
 
     static public HackerNewsApplication getApplication(){

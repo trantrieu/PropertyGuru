@@ -70,7 +70,7 @@ public class Utils {
     }
 
     static public final Item getItemReplyDefault2(){
-        Item item = GSON.fromJson(REPLY_STR_1, Item.class);
+        Item item = GSON.fromJson(REPLY_STR_2, Item.class);
         return item;
     }
 }
