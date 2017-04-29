@@ -93,7 +93,7 @@ public class ItemTest {
     //Testing each item is showing in 2 item
     @Test
     public void testItem1(){
-        for(int i = 0 ; i < 2 ; i ++) {
+        for(int i = 1 ; i < 2 ; i ++) {
             onView(withId(R.id.fragment_home_rv)).perform(RecyclerViewActions.actionOnItemAtPosition(i, click()));
             onView(withId(R.id.fragment_comment_container)).check(matches(isDisplayed()));
 
@@ -114,7 +114,7 @@ public class ItemTest {
         ItemAdapter itemAdapter = (ItemAdapter) recyclerView.getAdapter();
 
         registerNewOkHttpClient(true, false, false);
-        for(int i = 0 ; i < 2 ; i ++) {
+        for(int i = 1 ; i < 2 ; i ++) {
             Item item = itemAdapter.getItemAt(i);
             onView(withId(R.id.fragment_home_rv)).perform(RecyclerViewActions.actionOnItemAtPosition(i, click()));
             onView(withId(R.id.fragment_comment_container)).check(matches(not(isDisplayed())));
@@ -146,7 +146,7 @@ public class ItemTest {
     @Test
     public void testItem4(){
         Activity activity = mainActivityRule.getActivity();
-        int checkingPosition = 0;
+        int checkingPosition = 1;
         onView(withId(R.id.fragment_home_rv)).perform(RecyclerViewActions.actionOnItemAtPosition(checkingPosition, click()));
         onView(withId(R.id.fragment_comment_container)).check(matches(isDisplayed()));
         rotateToLandscape(activity);
@@ -172,7 +172,7 @@ public class ItemTest {
     public void testItem6(){
         Activity activity = mainActivityRule.getActivity();
 
-        int checkingPosition = 0;
+        int checkingPosition = 1;
         onView(withId(R.id.fragment_home_rv)).perform(RecyclerViewActions.actionOnItemAtPosition(checkingPosition, click()));
         ScrollView scrollView = (ScrollView) activity.findViewById(R.id.fragment_comment_sv);
         LinearLayout root = (LinearLayout) activity.findViewById(R.id.fragment_comment_container);

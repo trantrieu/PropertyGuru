@@ -39,7 +39,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public Fragment getLastedFragment(){
         int index = getSupportFragmentManager().getBackStackEntryCount() - 1;
-        FragmentManager.BackStackEntry backEntry = (FragmentManager.BackStackEntry) getSupportFragmentManager().getBackStackEntryAt(index);
+        FragmentManager.BackStackEntry backEntry = getSupportFragmentManager().getBackStackEntryAt(index);
         String tag = backEntry.getName();
         Fragment fragment = getSupportFragmentManager().findFragmentByTag(tag);
         return fragment;

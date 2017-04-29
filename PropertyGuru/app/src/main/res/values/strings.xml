@@ -9,9 +9,8 @@
     <string name="second">second(s)</string>
     <string name="ago">ago</string>
     <string name="retry">Retry</string>
-    <string name="more">More</string>
-    <string name="ok">ok</string>
-    <string name="cancel">cancel</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
     <string name="empty_data">Empty data!</string>
     <string name="error_no_internet">No internet connection, please check your netword connection</string>
     <string name="error_bad_network">Network is bad!!</string>

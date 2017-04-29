@@ -8,7 +8,6 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Button;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,9 +32,6 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
 
     @BindView(R.id.fragment_home_swipe)
     SwipeRefreshLayout swipeRefreshLayout;
-
-    @BindView(R.id.fragment_home_btn)
-    Button tmpBtn;
 
     static public HomeFragment getInstance(){
         HomeFragment homeFragment = new HomeFragment();
@@ -90,14 +86,6 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
                 presenter.getListHackerNews();
             }
         });
-
-        tmpBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                presenter.gotoPageDetail(itemAdapter.getItemAt(0));
-            }
-        });
-        tmpBtn.setVisibility(View.GONE);
     }
 
     @Override

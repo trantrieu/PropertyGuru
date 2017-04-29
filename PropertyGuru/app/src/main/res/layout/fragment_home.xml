@@ -11,6 +11,7 @@
 
         <android.support.v7.widget.RecyclerView
             android:visibility="gone"
+            android:scrollbars="vertical"
             android:id="@+id/fragment_home_rv"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -23,11 +24,6 @@
             android:layout_height="match_parent">
 
         </trieu.propertyguru.base.view.InfoView>
-
-        <Button
-            android:id="@+id/fragment_home_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
 
     </FrameLayout>
 </android.support.v4.widget.SwipeRefreshLayout>

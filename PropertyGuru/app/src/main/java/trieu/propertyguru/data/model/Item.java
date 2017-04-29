@@ -157,6 +157,9 @@ public class Item {
     }
 
     public String getUrl() {
+        if(url == null || url.isEmpty()){
+            return "No URL!";
+        }
         return url;
     }
 

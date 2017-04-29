@@ -1,7 +1,6 @@
 package trieu.propertyguru.base.view;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import trieu.propertyguru.BuildConfig;
 import trieu.propertyguru.R;
 
 
@@ -38,10 +36,6 @@ public class InfoView extends FrameLayout {
     public InfoView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
-    }
-
-    public InfoView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
     }
 
     private void init(){

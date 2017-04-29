@@ -51,6 +51,7 @@ public class Utils {
         }
     }
 
+
     static public boolean isWifiConnected(){
         ConnectivityManager cm = (ConnectivityManager) HackerNewsApplication.getApplication().getSystemService(Context.CONNECTIVITY_SERVICE);
         if(cm != null) {
