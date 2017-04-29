@@ -163,9 +163,9 @@ public class ItemTest {
         ItemAdapter itemAdapter = (ItemAdapter) recyclerView.getAdapter();
 
         int checkingPosition = 2;
+        Item item = itemAdapter.getItemAt(checkingPosition);
         onView(withId(R.id.fragment_home_rv)).perform(RecyclerViewActions.actionOnItemAtPosition(checkingPosition, click()));
 
-        Item item = itemAdapter.getItemAt(checkingPosition);
         if(item.getKids() != null && item.getKids().size() > 0) {
             onView(withId(R.id.fragment_comment_container)).check(matches(isDisplayed()));
             rotateToLandscape(activity);
