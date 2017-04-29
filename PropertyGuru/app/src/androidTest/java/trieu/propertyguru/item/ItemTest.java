@@ -93,9 +93,22 @@ public class ItemTest {
     //Testing each item is showing in 2 item
     @Test
     public void testItem1(){
-        for(int i = 1 ; i < 2 ; i ++) {
+
+        Activity activity = mainActivityRule.getActivity();
+        RecyclerView recyclerView = (RecyclerView) activity.findViewById(R.id.fragment_home_rv);
+        ItemAdapter itemAdapter = (ItemAdapter) recyclerView.getAdapter();
+
+        for(int i = 2 ; i < 3 ; i ++) {
+            Item item = itemAdapter.getItemAt(i);
             onView(withId(R.id.fragment_home_rv)).perform(RecyclerViewActions.actionOnItemAtPosition(i, click()));
-            onView(withId(R.id.fragment_comment_container)).check(matches(isDisplayed()));
+            if(item.getKids() != null && item.getKids().size() > 0){
+                onView(withId(R.id.fragment_comment_container)).check(matches(isDisplayed()));
+                onView(withId(R.id.fragment_comment_info_view)).check(matches(not(isDisplayed())));
+            }else{
+                onView(withId(R.id.fragment_comment_info_view)).check(matches(isDisplayed()));
+                onView(withId(R.id.fragment_comment_container)).check(matches(not(isDisplayed())));
+            }
+
 
             Activity currentActivity = mainActivityRule.getActivity();
             String appBarTitle = currentActivity.getString(R.string.app_name);
@@ -114,7 +127,7 @@ public class ItemTest {
         ItemAdapter itemAdapter = (ItemAdapter) recyclerView.getAdapter();
 
         registerNewOkHttpClient(true, false, false);
-        for(int i = 1 ; i < 2 ; i ++) {
+        for(int i = 2 ; i < 3 ; i ++) {
             Item item = itemAdapter.getItemAt(i);
             onView(withId(R.id.fragment_home_rv)).perform(RecyclerViewActions.actionOnItemAtPosition(i, click()));
             onView(withId(R.id.fragment_comment_container)).check(matches(not(isDisplayed())));
@@ -146,20 +159,33 @@ public class ItemTest {
     @Test
     public void testItem4(){
         Activity activity = mainActivityRule.getActivity();
-        int checkingPosition = 1;
+        RecyclerView recyclerView = (RecyclerView) activity.findViewById(R.id.fragment_home_rv);
+        ItemAdapter itemAdapter = (ItemAdapter) recyclerView.getAdapter();
+
+        int checkingPosition = 2;
         onView(withId(R.id.fragment_home_rv)).perform(RecyclerViewActions.actionOnItemAtPosition(checkingPosition, click()));
-        onView(withId(R.id.fragment_comment_container)).check(matches(isDisplayed()));
-        rotateToLandscape(activity);
-        onView(withId(R.id.fragment_comment_container)).check(matches(isDisplayed()));
-        rotateToPortrait(activity);
-        onView(withId(R.id.fragment_comment_container)).check(matches(isDisplayed()));
+
+        Item item = itemAdapter.getItemAt(checkingPosition);
+        if(item.getKids() != null && item.getKids().size() > 0) {
+            onView(withId(R.id.fragment_comment_container)).check(matches(isDisplayed()));
+            rotateToLandscape(activity);
+            onView(withId(R.id.fragment_comment_container)).check(matches(isDisplayed()));
+            rotateToPortrait(activity);
+            onView(withId(R.id.fragment_comment_container)).check(matches(isDisplayed()));
+        }else{
+            onView(withId(R.id.fragment_comment_info_view)).check(matches(isDisplayed()));
+            rotateToLandscape(activity);
+            onView(withId(R.id.fragment_comment_info_view)).check(matches(isDisplayed()));
+            rotateToPortrait(activity);
+            onView(withId(R.id.fragment_comment_info_view)).check(matches(isDisplayed()));
+        }
     }
 
     //Test number of comment in detail
     @Test
     public void testItem5(){
         Activity activity = mainActivityRule.getActivity();
-        int checkingPosition = 1;
+        int checkingPosition = 2;
         RecyclerView recyclerView = (RecyclerView) activity.findViewById(R.id.fragment_home_rv);
         ItemAdapter itemAdapter = (ItemAdapter) recyclerView.getAdapter();
         Item rootItem = itemAdapter.getItemAt(checkingPosition);
@@ -172,7 +198,7 @@ public class ItemTest {
     public void testItem6(){
         Activity activity = mainActivityRule.getActivity();
 
-        int checkingPosition = 1;
+        int checkingPosition = 2;
         onView(withId(R.id.fragment_home_rv)).perform(RecyclerViewActions.actionOnItemAtPosition(checkingPosition, click()));
         ScrollView scrollView = (ScrollView) activity.findViewById(R.id.fragment_comment_sv);
         LinearLayout root = (LinearLayout) activity.findViewById(R.id.fragment_comment_container);
