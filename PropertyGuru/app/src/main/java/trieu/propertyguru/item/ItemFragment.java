@@ -102,7 +102,9 @@ public class ItemFragment extends BaseFragment implements ItemContract.View{
             presenter.getDetailItems(item);
         }else{
             CommentView parentView = hashtable.get(parent);
-            parentView.addView(commentView);
+            if(parentView != null) {
+                parentView.addView(commentView);
+            }
         }
         commentView.init(item);
     }
