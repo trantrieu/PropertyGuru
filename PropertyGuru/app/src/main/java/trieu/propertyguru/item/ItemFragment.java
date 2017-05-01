@@ -99,7 +99,7 @@ public class ItemFragment extends BaseFragment implements ItemContract.View{
             hashtable.put(item, commentView);
 
             //only more one time
-            //presenter.getDetailItems(item);
+            presenter.getDetailItems(item);
         }else{
             CommentView parentView = hashtable.get(parent);
             parentView.addView(commentView);
